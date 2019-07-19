@@ -142,3 +142,94 @@ Traceback (most recent call last):
   File "/usr/local/lib/python3.6/site-packages/sanic/router.py", line 446, in _get
     raise method_not_supported
 sanic.exceptions.MethodNotSupported: Method POST not allowed for URL /webhooks/rest
+2019-07-16 12:02:15,106 [ERROR]  Experienced exception while trying to serve
+Traceback (most recent call last):
+  File "/Users/atsushiharada/.pyenv/versions/3.7.3/envs/rasa-sample/lib/python3.7/site-packages/tensorflow/python/framework/ops.py", line 2409, in get_attr
+    c_api.TF_OperationGetAttrValueProto(self._c_op, name, buf)
+tensorflow.python.framework.errors_impl.InvalidArgumentError: Operation 'lstm/while/strided_slice' has no attr named '_XlaCompile'.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/atsushiharada/.pyenv/versions/3.7.3/envs/rasa-sample/lib/python3.7/site-packages/tensorflow/python/ops/gradients_impl.py", line 415, in _MaybeCompile
+    xla_compile = op.get_attr("_XlaCompile")
+  File "/Users/atsushiharada/.pyenv/versions/3.7.3/envs/rasa-sample/lib/python3.7/site-packages/tensorflow/python/framework/ops.py", line 2413, in get_attr
+    raise ValueError(str(e))
+ValueError: Operation 'lstm/while/strided_slice' has no attr named '_XlaCompile'.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/atsushiharada/.pyenv/versions/3.7.3/envs/rasa-sample/lib/python3.7/site-packages/sanic/app.py", line 1096, in run
+    serve(**server_settings)
+  File "/Users/atsushiharada/.pyenv/versions/3.7.3/envs/rasa-sample/lib/python3.7/site-packages/sanic/server.py", line 742, in serve
+    trigger_events(before_start, loop)
+  File "/Users/atsushiharada/.pyenv/versions/3.7.3/envs/rasa-sample/lib/python3.7/site-packages/sanic/server.py", line 604, in trigger_events
+    loop.run_until_complete(result)
+  File "uvloop/loop.pyx", line 1445, in uvloop.loop.Loop.run_until_complete
+  File "uvloop/loop.pyx", line 1438, in uvloop.loop.Loop.run_until_complete
+  File "uvloop/loop.pyx", line 1347, in uvloop.loop.Loop.run_forever
+  File "uvloop/loop.pyx", line 487, in uvloop.loop.Loop._run
+  File "uvloop/loop.pyx", line 404, in uvloop.loop.Loop._on_idle
+  File "uvloop/cbhandles.pyx", line 66, in uvloop.loop.Handle._run
+  File "/Users/atsushiharada/.pyenv/versions/3.7.3/envs/rasa-sample/lib/python3.7/site-packages/rasa/core/run.py", line 218, in load_agent_on_start
+    action_endpoint=endpoints.action,
+  File "/Users/atsushiharada/.pyenv/versions/3.7.3/envs/rasa-sample/lib/python3.7/site-packages/rasa/core/agent.py", line 262, in load_agent
+    remote_storage=remote_storage,
+  File "/Users/atsushiharada/.pyenv/versions/3.7.3/envs/rasa-sample/lib/python3.7/site-packages/rasa/core/agent.py", line 892, in load_local_model
+    remote_storage=remote_storage,
+  File "/Users/atsushiharada/.pyenv/versions/3.7.3/envs/rasa-sample/lib/python3.7/site-packages/rasa/core/agent.py", line 378, in load
+    ensemble = PolicyEnsemble.load(core_model) if core_model else None
+  File "/Users/atsushiharada/.pyenv/versions/3.7.3/envs/rasa-sample/lib/python3.7/site-packages/rasa/core/policies/ensemble.py", line 232, in load
+    policy = policy_cls.load(policy_path)
+  File "/Users/atsushiharada/.pyenv/versions/3.7.3/envs/rasa-sample/lib/python3.7/site-packages/rasa/core/policies/keras_policy.py", line 320, in load
+    model = load_model(model_file)
+  File "/Users/atsushiharada/.pyenv/versions/3.7.3/envs/rasa-sample/lib/python3.7/site-packages/tensorflow/python/keras/engine/saving.py", line 275, in load_model
+    model._make_train_function()
+  File "/Users/atsushiharada/.pyenv/versions/3.7.3/envs/rasa-sample/lib/python3.7/site-packages/tensorflow/python/keras/engine/training.py", line 1919, in _make_train_function
+    [self.total_loss] + metrics_tensors)
+  File "/Users/atsushiharada/.pyenv/versions/3.7.3/envs/rasa-sample/lib/python3.7/site-packages/tensorflow/python/keras/engine/training.py", line 1895, in _make_train_function_helper
+    params=self._collected_trainable_weights, loss=self.total_loss)
+  File "/Users/atsushiharada/.pyenv/versions/3.7.3/envs/rasa-sample/lib/python3.7/site-packages/tensorflow/python/keras/optimizers.py", line 259, in get_updates
+    grads = self.get_gradients(loss, params)
+  File "/Users/atsushiharada/.pyenv/versions/3.7.3/envs/rasa-sample/lib/python3.7/site-packages/tensorflow/python/keras/optimizers.py", line 93, in get_gradients
+    grads = K.gradients(loss, params)
+  File "/Users/atsushiharada/.pyenv/versions/3.7.3/envs/rasa-sample/lib/python3.7/site-packages/tensorflow/python/keras/backend.py", line 3216, in gradients
+    loss, variables, colocate_gradients_with_ops=True)
+  File "/Users/atsushiharada/.pyenv/versions/3.7.3/envs/rasa-sample/lib/python3.7/site-packages/tensorflow/python/ops/gradients_impl.py", line 664, in gradients
+    unconnected_gradients)
+  File "/Users/atsushiharada/.pyenv/versions/3.7.3/envs/rasa-sample/lib/python3.7/site-packages/tensorflow/python/ops/gradients_impl.py", line 965, in _GradientsHelper
+    lambda: grad_fn(op, *out_grads))
+  File "/Users/atsushiharada/.pyenv/versions/3.7.3/envs/rasa-sample/lib/python3.7/site-packages/tensorflow/python/ops/gradients_impl.py", line 420, in _MaybeCompile
+    return grad_fn()  # Exit early
+  File "/Users/atsushiharada/.pyenv/versions/3.7.3/envs/rasa-sample/lib/python3.7/site-packages/tensorflow/python/ops/gradients_impl.py", line 965, in <lambda>
+    lambda: grad_fn(op, *out_grads))
+  File "/Users/atsushiharada/.pyenv/versions/3.7.3/envs/rasa-sample/lib/python3.7/site-packages/tensorflow/python/ops/array_grad.py", line 276, in _StridedSliceGrad
+    shrink_axis_mask=op.get_attr("shrink_axis_mask")), None, None, None
+  File "/Users/atsushiharada/.pyenv/versions/3.7.3/envs/rasa-sample/lib/python3.7/site-packages/tensorflow/python/ops/gen_array_ops.py", line 9550, in strided_slice_grad
+    shrink_axis_mask=shrink_axis_mask, name=name)
+  File "/Users/atsushiharada/.pyenv/versions/3.7.3/envs/rasa-sample/lib/python3.7/site-packages/tensorflow/python/framework/op_def_library.py", line 788, in _apply_op_helper
+    op_def=op_def)
+  File "/Users/atsushiharada/.pyenv/versions/3.7.3/envs/rasa-sample/lib/python3.7/site-packages/tensorflow/python/util/deprecation.py", line 507, in new_func
+    return func(*args, **kwargs)
+  File "/Users/atsushiharada/.pyenv/versions/3.7.3/envs/rasa-sample/lib/python3.7/site-packages/tensorflow/python/framework/ops.py", line 3300, in create_op
+    op_def=op_def)
+  File "/Users/atsushiharada/.pyenv/versions/3.7.3/envs/rasa-sample/lib/python3.7/site-packages/tensorflow/python/framework/ops.py", line 1838, in __init__
+    self._control_flow_post_processing()
+  File "/Users/atsushiharada/.pyenv/versions/3.7.3/envs/rasa-sample/lib/python3.7/site-packages/tensorflow/python/framework/ops.py", line 1849, in _control_flow_post_processing
+    self._control_flow_context.AddOp(self)
+  File "/Users/atsushiharada/.pyenv/versions/3.7.3/envs/rasa-sample/lib/python3.7/site-packages/tensorflow/python/ops/control_flow_ops.py", line 2561, in AddOp
+    self._AddOpInternal(op)
+  File "/Users/atsushiharada/.pyenv/versions/3.7.3/envs/rasa-sample/lib/python3.7/site-packages/tensorflow/python/ops/control_flow_ops.py", line 2582, in _AddOpInternal
+    real_x = self.AddValue(x)
+  File "/Users/atsushiharada/.pyenv/versions/3.7.3/envs/rasa-sample/lib/python3.7/site-packages/tensorflow/python/ops/control_flow_ops.py", line 2514, in AddValue
+    real_val = grad_ctxt.grad_state.GetRealValue(val)
+  File "/Users/atsushiharada/.pyenv/versions/3.7.3/envs/rasa-sample/lib/python3.7/site-packages/tensorflow/python/ops/control_flow_ops.py", line 1141, in GetRealValue
+    tensor_util.constant_value(cur_value), dtype=cur_value.dtype)
+  File "/Users/atsushiharada/.pyenv/versions/3.7.3/envs/rasa-sample/lib/python3.7/site-packages/tensorflow/python/framework/tensor_util.py", line 848, in constant_value
+    ret = _ConstantValue(tensor, partial)
+  File "/Users/atsushiharada/.pyenv/versions/3.7.3/envs/rasa-sample/lib/python3.7/site-packages/tensorflow/python/framework/tensor_util.py", line 713, in _ConstantValue
+    return MakeNdarray(tensor.op.get_attr("value"))
+  File "/Users/atsushiharada/.pyenv/versions/3.7.3/envs/rasa-sample/lib/python3.7/site-packages/tensorflow/python/framework/ops.py", line 2414, in get_attr
+    x = attr_value_pb2.AttrValue()
+KeyboardInterrupt
